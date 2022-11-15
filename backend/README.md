@@ -36,6 +36,11 @@ Populate the database using the `trivia.psql` file provided. From the `backend` 
 psql trivia < trivia.psql
 ```
 
+Windows
+```bash
+"POSTGRESQL_DIR\psql.exe" -U postgres -d trivia -a -f "PATH_TO_\trivia.psql"
+```
+
 ### Run the Server
 
 From within the `./src` directory first ensure you are working using your created virtual environment.
@@ -48,7 +53,7 @@ flask run --reload
 
 The `--reload` flag will detect file changes and restart the server automatically.
 
-## To Do Tasks
+## To Do Tasks 🆗
 
 These are the files you'd want to edit in the backend:
 
@@ -67,7 +72,7 @@ One note before you delve into your tasks: for each endpoint, you are expected t
 8. Create a `POST` endpoint to get questions to play the quiz. This endpoint should take a category and previous question parameters and return a random questions within the given category, if provided, and that is not one of the previous questions.
 9. Create error handlers for all expected errors including 400, 404, 422, and 500.
 
-## Documenting your Endpoints
+## Documenting your Endpoints 🆗
 
 You will need to provide detailed documentation of your API endpoints including the URL, request parameters, and the response body. Use the example below as a reference.
 
@@ -90,7 +95,7 @@ You will need to provide detailed documentation of your API endpoints including 
 }
 ```
 
-## Testing
+## Testing 🆗
 
 Write at least one test for the success and at least one error behavior of each endpoint using the unittest library.
 
