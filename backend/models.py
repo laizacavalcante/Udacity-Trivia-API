@@ -1,11 +1,12 @@
 import os
+import json
 from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
-import json
 
 database_name = 'trivia'
-database_path = 'postgresql://{}/{}'.format('localhost:5432', database_name)
-
+username = os.environ.get("USERNAME")
+password = os.environ.get("PASSWORD")
+database_path = f'postgresql://{username}:{password}@localhost:5432/{database_name}'
 db = SQLAlchemy()
 
 """
@@ -29,7 +30,7 @@ class Question(db.Model):
     id = Column(Integer, primary_key=True)
     question = Column(String)
     answer = Column(String)
-    category = Column(String)
+    category = Column(String) # Isso deveria ser um inteiro e essa tabela tem que se relacionar com a outra
     difficulty = Column(Integer)
 
     def __init__(self, question, answer, category, difficulty):
@@ -46,6 +47,7 @@ class Question(db.Model):
         db.session.commit()
 
     def delete(self):
+        print(self)
         db.session.delete(self)
         db.session.commit()
 
